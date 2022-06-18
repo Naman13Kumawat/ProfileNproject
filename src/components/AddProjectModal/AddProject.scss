@@ -1,0 +1,35 @@
+.addModal{
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    margin: 2rem auto;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    width: 50%;
+    border-radius: 10px;
+
+    form{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 60%;
+        justify-content: center;
+        align-items: center;
+
+        lable{
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        input{
+                padding: 0.5rem 1rem;
+                width: 100%;
+                border: 1px solid lightgrey;
+                border-radius: 10px;
+            }
+        }
+}

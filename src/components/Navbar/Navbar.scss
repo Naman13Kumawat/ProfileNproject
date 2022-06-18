@@ -1,0 +1,34 @@
+.navbar{
+    background-color: #47B5FF;
+    color: #fff;
+    padding: 2rem;
+
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: flex-start;
+        li{
+            margin: 0 1rem;
+
+            .add{
+                margin-left: 70vw;
+                background-color: #06283D;
+                padding: 0.5rem;
+                border-radius: 10px;
+            }
+
+            a{
+                text-decoration: none;
+                color: #fff;
+                font-size: 1rem;
+                font-weight: 500;
+                transition: all 0.2s ease-in-out;
+                &:hover{
+                    opacity: 0.5;   
+                }
+                
+            }
+
+        }
+    }
+}
