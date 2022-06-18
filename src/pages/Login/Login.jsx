@@ -1,36 +1,47 @@
 import { useState } from "react";
 import "./Login.scss";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  let navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
     password: "",
   });
 
-  async function postData(next){
-    try{
-      
-    } catch(e){
-      next(e);
+  async function postData() {
+    try {
+      const res = await axios.post("api/auth/login", userData);
+      if (res.status === 200) {
+        navigate("/projects", { replace: true });
+      }
+    } catch (e) {
+      console.log(e);
     }
   }
 
   const handleChange = (e) => {
     setUserData((prevValue) => {
-      const {name, value} = e.target;
+      const { name, value } = e.target;
       switch (name) {
         case "email":
-          return {...prevValue, email: value}
+          return { ...prevValue, email: value };
         case "password":
-          return {...prevValue, password: value};
+          return { ...prevValue, password: value };
         default:
           break;
-        }
+      }
     });
   };
 
   const handleClick = (e) => {
+    e.preventDefault();
     console.log(userData);
+    userData.email.length && userData.password.length && postData();
+    if(userData.email.length === 0|| userData.password.length === 0){
+      alert("Fields Required: Email and Password!");
+    }
   };
   return (
     <>
@@ -54,7 +65,7 @@ export default function Login() {
             onChange={handleChange}
           />
         </form>
-        <button type="submit" name="login" onClick={handleClick}>
+        <button name="login" onClick={handleClick}>
           Log In
         </button>
         <p>

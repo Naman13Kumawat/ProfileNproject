@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
 import "./Signup.scss";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -19,14 +19,14 @@ export default function Signup() {
     experience: "",
   });
 
-  async function postData(next) {
+  async function postData() {
     try {
       const res = await axios.post("api/auth/register", userData);
       if (res.status === 200) {
         navigate("/projects", { replace: true });
       }
     } catch (e) {
-      next(e);
+      console.log(e);
     }
   }
 
@@ -63,7 +63,16 @@ export default function Signup() {
   };
   const handleClick = (e) => {
     console.log(userData);
-    postData();
+    const values = Object.values(userData);
+    let flag = true;
+    for(let i=0; i<8 ; i++){
+      if(values[i].length === 0){
+        alert("Fields with * are required!");
+        flag = false;
+        break;
+      }
+    }
+    if(flag) postData();
   };
 
   return (
@@ -95,7 +104,7 @@ export default function Signup() {
             />
             <input
               onChange={handleChange}
-              type="tel"
+              type="number"
               name="mobileNumber"
               placeholder="Mobile Number*"
               required
@@ -146,14 +155,14 @@ export default function Signup() {
             />
             <input
               onChange={handleChange}
-              type="text"
+              type="number"
               name="experience"
               placeholder="Years of experience"
             />
           </span>
         </form>
 
-        <button name="login" onClick={handleClick}>
+        <button name="signup" onClick={handleClick}>
           Sign Up
         </button>
       </div>
