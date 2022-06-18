@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import userRoutes from "./routes/users.js";
 import projectRoutes from "./routes/projects.js";
+import authRoutes from "./routes/auth.js"
 
 const app = express();
 dotenv.config();
@@ -28,6 +29,7 @@ mongoose.connection.on("connected", () => {
 app.use(cookieParser());
 app.use(express.json());
 
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/projects", projectRoutes);
 
