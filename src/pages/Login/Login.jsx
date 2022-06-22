@@ -37,7 +37,6 @@ export default function Login() {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(userData);
     userData.email.length && userData.password.length && postData();
     if(userData.email.length === 0|| userData.password.length === 0){
       alert("Fields Required: Email and Password!");

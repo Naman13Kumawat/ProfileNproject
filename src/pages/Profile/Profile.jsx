@@ -1,9 +1,13 @@
 import "./Profile.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import useFetch from "../../hooks/useFetch";
+import { decodeToken } from "react-jwt";
+
 
 export default function Profile() {
-  const { data, error } = useFetch("api/users/62b1823e874b0b546969a445");
+  const access_token = document.cookie.slice(96);
+  const userID = access_token && decodeToken(access_token).id; 
+  const { data, error } = useFetch(`api/users/${userID}`);
 
   return (
     <>

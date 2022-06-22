@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./AddProject.scss";
 import { useNavigate } from "react-router-dom";
 
-export default function AddProject() {
+export default function AddProject({userID}) {
   let navigate = useNavigate();
   const [project, setProject] = useState({
     projectName: "",
@@ -39,7 +39,7 @@ export default function AddProject() {
   async function postData(req, res) {
     try {
       const res = await axios.post(
-        "api/projects/naman.kumawat07@gmail.com",
+        `api/projects/${userID}`,
         project
       );
       if (res.status === 200) {

@@ -23,7 +23,7 @@ const ProjectSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
-  userEmail:{
+  userID:{
     type: String,
   }
 });
