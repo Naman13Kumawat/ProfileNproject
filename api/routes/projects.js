@@ -5,12 +5,12 @@ import {verifyUser} from "../utils/verifyToken.js";
 const router = express.Router();
 
 //CREATE
-router.post("/",verifyUser, createProject);
+router.post("/:userEmail",verifyUser, createProject);
 
 // GET
-router.get("/:id",verifyUser, getProject);
+router.get("/:userEmail/:id",verifyUser, getProject);
 
 //GET ALL
-router.get("/",verifyUser, getProjects);
+router.get("/:userEmail",verifyUser, getProjects);
 
 export default router;

@@ -1,11 +1,11 @@
 import './ProjectCard.scss'
 
-export default function ProjectCard(){
+export default function ProjectCard({details}){
   return (
     <div className='projectCard'>
-        <span className="title">Project Title</span>
-        <span className="desc">Project Desc</span>
-        <span className="cat">Category</span>
+        <span className="title">{details.projectName}</span>
+        <span className="desc">{details.desc}</span>
+        <span className="cat">{details.category}</span>
     </div>
   )
 }

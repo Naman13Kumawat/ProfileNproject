@@ -65,14 +65,14 @@ export default function Signup() {
     console.log(userData);
     const values = Object.values(userData);
     let flag = true;
-    for(let i=0; i<8 ; i++){
-      if(values[i].length === 0){
+    for (let i = 0; i < 8; i++) {
+      if (values[i].length === 0) {
         alert("Fields with * are required!");
         flag = false;
         break;
       }
     }
-    if(flag) postData();
+    if (flag) postData();
   };
 
   return (

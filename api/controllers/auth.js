@@ -59,3 +59,12 @@ export const login = async (req, res, next) => {
     next(err);
   }
 };
+
+export const logout = (req, res, next) => {
+  try {
+    res.clearCookie("access_token");
+    res.status(200).send("Cookie deleted successfully");
+  } catch (err) {
+    next(err);
+  }
+};

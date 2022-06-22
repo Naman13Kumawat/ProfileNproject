@@ -23,6 +23,9 @@ const ProjectSchema = new mongoose.Schema({
   notes: {
     type: String,
   },
+  userEmail:{
+    type: String,
+  }
 });
 
 export default mongoose.model("Project" , ProjectSchema);
