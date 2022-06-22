@@ -62,7 +62,6 @@ export default function Signup() {
     });
   };
   const handleClick = (e) => {
-    console.log(userData);
     const values = Object.values(userData);
     let flag = true;
     for (let i = 0; i < 8; i++) {

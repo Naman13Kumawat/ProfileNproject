@@ -27,7 +27,14 @@ export const register = async (req, res, next) => {
       });
 
       await newUser.save();
-      res.status(200).send("User created successfully!");
+      
+      try{
+        const user = await User.findById(newUser._id);
+        const token = jwt.sign({ id: user._id }, process.env.JWT);
+        res.cookie("access_token", token).status(200).send("User created successfully!");
+      } catch(err){
+        next(err);
+      }
     } catch (err) {
       next(err);
     }
