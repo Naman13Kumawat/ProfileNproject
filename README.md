@@ -4,4 +4,5 @@ Assignment submitted to Origin Cloud Technologies Private Limited.
 
 Technologies Used: React.js, AXIOS, RESTful API, JWT, MongoDB, SASS  
 
-https://drive.google.com/file/d/1uDrwaShDRSnNvigGzcc19AUWHMGXy5x4/view?usp=sharing
+Screen Shots:
+<img src="https://raw.githubusercontent.com/Naman13Kumawat/ProfileNproject/main/public/images/1.jpg" alt="1" /></a>
